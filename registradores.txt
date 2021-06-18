@@ -1,0 +1,49 @@
+-- Character MAP for ARCHMB TEXT DRAWER
+
+-- TODO
+-- Desenho de Bomba
+-- Desenho da bandeira
+-- Parede horizontal
+-- Parede Vertical
+-- Interseção
+
+recebe entradaTeclado
+verifica letra recebida
+se letra = [w,a,s,d] entao
+    verifica posicao
+    se w entao:
+        se pos - 14 >= 0 entao
+            move para cima
+    se a entao:
+        se pos - 1 >= 0 entao
+            move para esquerda
+    se s entao:
+        se pos + 14 < 289 entao
+            move para baixo
+    se d entao:
+        se pos + 1 < 289 entao
+            move para direita    
+    mover ponteiro
+senao se letra = [k,l] entao
+    se k entao:
+        se vetCampo1[pos] < 20
+            se vetCampo1[pos] > 9
+                tem bandeira, nao faz nada
+            senao
+                vetCampo1[pos]+= 10
+                revelaQuadrado
+    senao
+        se vetCampo1[pos] < 10
+            vetCampo1[pos]+=10
+            printa bandeira na posição de vetCampo1
+        senao
+            vetCampo1[pos]-=10
+            printa nada, pois tirou a bandeira
+    executa acao
+
+converteCampoParaPixel:
+    
+    xPixel = ((posCampo % 14) * 2) * 30 + 1
+    yPixel = ((posCampo / 14) * 2 - 1) * 40 + 1
+
+    pixel = xPixel + 30 * yPixel
