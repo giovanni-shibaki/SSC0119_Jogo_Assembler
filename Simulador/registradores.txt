@@ -1,0 +1,135 @@
+-- Character MAP for ARCHMB TEXT DRAWER
+
+-- TODO
+-- Desenho de Bomba
+-- Desenho da bandeira
+-- Parede horizontal
+-- Parede Vertical
+-- Interseção
+
+Caracteres  modificados:
+Bandeira: '{'
+Bomba: '}'
+Parede: '['
+
+
+recebe entradaTeclado
+verifica letra recebida
+se letra = [w,a,s,d] entao
+    verifica posicao
+    se w entao:
+        se pos - 14 >= 0 entao
+            move para cima
+    se a entao:
+        se pos - 1 >= 0 entao
+            move para esquerda
+    se s entao:
+        se pos + 14 < 196 entao
+            move para baixo
+    se d entao:
+        se pos + 1 < 196 entao
+            move para direita    
+    mover ponteiro
+senao se letra = [k,l] entao
+    se k entao:
+        se vetCampo1[pos] < 20
+            se vetCampo1[pos] > 9
+                tem bandeira, nao faz nada
+            senao
+                vetCampo1[pos] = 20
+                revelaQuadrado
+    senao
+        se vetCampo1[pos] < 10
+            vetCampo1[pos]+=10
+            printa bandeira na posição de vetCampo1
+        senao
+            vetCampo1[pos]-=10
+            printa vazio, pois tirou a bandeira
+    executa acao
+
+converteCampoParaPixel: 🤔
+    
+    xPixel = ((posCampo % 14) * 2) + 1
+    yPixel = ((posCampo / 14) * 2) + 1
+    0 <= posCampo < 196
+
+    pixel = yPixel * 40 + xPixel
+    pixel = ((posCampo / 14) * 2 + 1) * 40 + ((posCampo % 14) * 2) + 1
+    pixel = ((posCampo / 14) * 80) + ((posCampo % 14) * 2) + 41
+
+    40 + 14 + 41 = 95
+    0    14 + 41 = 55
+
+Pegar os pixels em volta de uma posCampo
+
+pixelCima = pixel - 40
+pixelEmbaixo = pixel + 40
+pixelDir eito = pixel + 1
+pixelEsquerdo = pixel - 1
+
+pixelSupDir = pixelCima + 1
+pixelSupEsq = pixelCima - 1
+pixelInfDir = pixelBaixo + 1
+pixelInfEsq = pixelBaixo - 1
+
+
+revelaQuadrado0:
+    
+    ; pos - 14 vai estar em X
+    se pos - 14 >= 0 entao
+        chamadaRecursiva
+    
+    se pos - 1 >= 0 entao
+        chamadaRecursiva
+    
+    se pos + 14 < 196 entao
+      chamadaRecursiva
+    
+    se pos + 1 < 196 entao
+       chamadaRecursiva
+
+    chamadaRecursiva:
+        se vetCampo1[X(ALGUM REGISTRADOR)] < 20 (não foi revelado)
+            posPonteiro = X(ALGUM REGISTRADOR)
+            revelaQuadrado
+
+
+revelaQuadrado0:
+
+    se pos-14 < 0
+        sai
+    se vetCampo[pos-14] < 20
+        posPonteiro = posPonteiro - 14
+        revelaQuadrado
+    
+    se pos + 14 >= 196
+        sai
+    se vetCampo[pos+14] < 20
+        posPonteiro = posPonteiro + 14
+        revelaQuadrado
+        
+    se pos-1 < 0
+        sai
+    se vetCampo[pos-1] < 20
+        posPonteiro = posPonteiro - 1
+        revelaQuadrado
+
+    se pos + 1 >= 196
+        sai
+    se vetCampo[pos+1] < 20
+        posPonteiro = posPonteiro + 1
+        revelaQuadrado
+
+
+
+revelaQuadrado:
+    revelar
+    se posCampo == 0 
+        revelaQuadrado0
+
+func:
+	loadn r0, #vetCampo1
+	loop:
+		loadi r2, r0
+		store #vetCampo r2
+		inc r0
