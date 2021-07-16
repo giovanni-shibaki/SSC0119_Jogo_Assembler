@@ -138,4 +138,73 @@ func:
 
 Quando tem um zero, revela TODOS os quadrados em volta dele, quando revela o quadrado, se ele for zero também, revela todos em volta dele também
 
+============================================================================================================
 
+Planejamento para o vídeo de apresentação do Jogo:
+
+1. Apresentar o jogo em si (recursos do jogo, walkthrough)
+    1.1. Menu
+        - Falar das 3 dificuldades que fizemos
+        
+    1.2. Jogar um pouco do nível Facil
+       1.2.1 Falar do campo
+            - 14x14
+            - Número de bombas depende da dificuldade
+       1.2.2 Falar dos controles
+            - WASD
+            - J: selecionar
+            - K: inserir bandeira
+       1.2.3 Mostrar o contador de bandeiras
+       1.2.4 Mostrar o clique
+            - Falar da função recursiva que mostra todos os quadrados 0. 
+            - Backtracking
+            - a área descoberta sempre faz fronteira com algo que não eh bomba
+       1.2.5 Mostrar Tela de Vitoria
+       
+    1.3. Entrar no nivel medio/dificil
+        - jogar um pouco
+        - perder propositalmente
+        - Mostrar tela de derrota
+
+
+2. Agora, mostrar a construção do código em si
+    2.1 Nos baseamos no PDF de instruções disponibilizado no Gitlab da disciplina
+    2.2 Olhamos exemplos de projetos dos anos passados
+    2.3 Função main e startGame
+        - Fica esperando o usuário apertar algum botão do teclado para assim realizar a ação
+
+
+3. Falar das variáveis que criamos para string e campo
+    3.1 Mostrar diagrama do campo e, a partir dele, explicar a montagem do campo usando uma abordagem unidimensional (vetor e varias tags)
+        - Mostrar o grid no inkscape
+        - Mostrar o grid do campo com as estrelas onde estariam as bombas
+    3.2 Mostrar parte artistica 
+        - mostrar strings exibidas na tela , como bomba , bandeira etc
+            - exibir como ocorre a impressao (de linha a linha, etc)
+        - mostrar .mif e indicar quais caracteres foram ´sacrificados´ para o projeto
+
+4. Falar das funções e dar destaque às função do J e do K e principalmente da função recursiva
+    4.1 Função de calcular o posPonteiro
+        - Variável de 0 até 195
+        - A função calcula qual será a posição central relativa àquele valor para pintar em volta
+
+    4.2 WASD - Movimento do ponteiro no jogo no campo 14x14
+        - Somar ou subtrair 1 ou 14 para mover o ponteiro
+
+    4.3 Função de clique
+        4.1.1 Verifica se o campo já não foi revelado
+        4.1.2 Verifica se tem bandeira
+        4.1.3 Se tiver bomba, dá game-over
+        
+    4.4 Função de colocar bandeira
+        4.2.1 Verificar se o campo já não foi revelado
+        4.2.2 Verificar se tem bandeira, se tiver tira a bandeira (-10)
+        4.2.3 Por fim, coloca a bandeira (+10)
+
+
+5. Considerações finais (OPCIONAL)
+    5.1 Dizer o que aprendeu
+        - A realização do jogo permitiu entender o começo , meio e fim de um projeto funcional usando Assembly
+        - Exercitar os conceitos de Stack e a montar GUI usando uma linguagem de baixissimo nivel
+    5.2 Agradecimentos
+        - obg prof Simoes (sqn) pela acessoria durante o projeto, e aos veteranos tbm
