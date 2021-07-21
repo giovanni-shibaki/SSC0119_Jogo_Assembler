@@ -1,11 +1,17 @@
 # Campo Minado em Assembly 💣
-Jogo do Campo minado feito no assembly do ICMC
+Projeto final da dsiciplina de SCC0119- Prática em Organização de Computadores. Consiste no jogo do campo minado feito inteiramente com o auxílio Assembly do ICMC.
 
 ## Sobre
-....
+Jogo
+
+### Funcionalidades
+
+### Tutorial
+
+## Fotos
 
 ## Time
-* Giovanni Shibaki
-* Pedro Muramatsu 
-* Lucas Mihara
+* 11796444 - Giovanni Shibaki
+* 11796441 - Pedro Muramatsu 
+* 11796472 - Lucas Mihara
 

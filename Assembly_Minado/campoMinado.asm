@@ -766,6 +766,8 @@ vetCampo3 : var #196
 	static vetCampo3 + #194, #1
 	static vetCampo3 + #195, #1
 
+
+
 ; guarda a posição do primeiro pixel de cada slot do campo minado
 vetPix : var #10
 	static vetPix + #0, #25
@@ -795,16 +797,20 @@ main:
 
 		init: ; Ler a dificuldade escolhida pelo player
 			call keyboard
+
+			; modo facil
 			loadn r0, #'1'
 			cmp r3, r0
 			ceq loadCampo1
 			ceq startGame
 			
+			; modo medio
 			loadn r0, #'2'
 			cmp r3, r0
 			ceq loadCampo2
 			ceq startGame
 
+			; modo dificil
 			loadn r0, #'3'
 			cmp r3, r0
 			ceq loadCampo3
