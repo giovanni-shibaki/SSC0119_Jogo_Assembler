@@ -41,7 +41,7 @@ Para jogar é preciso apenas utilizar o teclado!
 
 - Feito no inkscape, mostra todas as posições da interface gráfica do simulador. Foi utilizado para facilitar a visualização das posições para a exibição de texto e imagens.
 <html>
-	 <img src="images/grid_cpu_simoes.PNG" alt="nome"  width="800px">
+	 <img src="images/grid_cpu_simoes.png" alt="nome"  width="800px">
 </html>
 <br>
 <br>
@@ -50,7 +50,7 @@ Para jogar é preciso apenas utilizar o teclado!
 
 - Também feito no inkscape, mostra todas as posições do campo minado para facilitar o posicionamento das bombas e numeração dos campos.
 <html>
-	 <img src="images/grid_campo_minado.PNG" alt="nome"  width="800px">
+	 <img src="images/grid_campo_minado.png" alt="nome"  width="800px">
 </html>
 <br>
 <br>
