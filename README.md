@@ -13,7 +13,7 @@ Projeto final da dsiciplina de SCC0119 - Prática em Organização de Computador
 
 ## Funcionalidades
 
-- Neste projeto, tentamos desenvolver todas as funcionalidades que um jogo comum de campo minado apresenta. Temos as funções de inserção e remoção de bandeiras, contagem de bandeiras inseridas e **uma função recursiva responsável por revelar todos os campo adjacentes àqueles com valor 0**.
+- Neste projeto, desenvolvemos todas as funcionalidades que um jogo comum de campo minado apresenta. Temos as funções de inserção e remoção de bandeiras, contagem de bandeiras inseridas e **uma função recursiva responsável por revelar todos os campo adjacentes àqueles com valor 0**.
 
 <html>
 	 <img src="images/funcao_recursiva.gif" alt="nome"  width="600px">
@@ -121,9 +121,9 @@ Para jogar é preciso apenas utilizar o teclado!
 ---
 
 ## Membros
-* 11796444 - Giovanni Shibaki
-* 11796441 - Pedro Muramatsu 
-* 11796472 - Lucas Mihara
+* 11796444 - Giovanni Shibaki Camargo
+* 11796441 - Pedro Kenzo Muramatsu Carmo
+* 11796472 - Lucas Keiti Anbo Mihara
 
 ---
 

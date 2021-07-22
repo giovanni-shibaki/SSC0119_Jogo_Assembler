@@ -921,12 +921,18 @@ clrScrn:
 	pop r0
 	rts
 
-Imprimestr:	;  Rotina de Impresao de Mensagens:    r0 = Posicao da tela que o primeiro caractere da mensagem sera impresso;  r1 = endereco onde comeca a mensagem; r2 = cor da mensagem.   Obs: a mensagem sera' impressa ate' encontrar "/0"
+Imprimestr:	;  Rotina de Impresao de Mensagens:    
+			; 	r0 = Posicao da tela que o primeiro caractere da mensagem sera impresso
+			; 	r1 = endereco onde comeca a mensagem
+			;   r2 = cor da mensagem.   
+			; 	Obs: a mensagem sera' impressa ate' encontrar "/0"
+
 	push r0	; protege o r0 na pilha para preservar seu valor
 	push r1	; protege o r1 na pilha para preservar seu valor
 	push r2	; protege o r1 na pilha para preservar seu valor
 	push r3	; protege o r3 na pilha para ser usado na subrotina
 	push r4	; protege o r4 na pilha para ser usado na subrotina
+
 	loadn r3, #'\0'	; Criterio de parada
 	
 	ImprimestrLoop:	
@@ -1066,7 +1072,6 @@ loadCampo1:
 	rts
 
 ; -----------------------------------------------------------------------------
-
 
 ; -----------------------------------------------------------------------------
 

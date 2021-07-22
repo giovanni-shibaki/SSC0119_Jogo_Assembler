@@ -152,8 +152,8 @@ Planejamento para o vídeo de apresentação do Jogo:
             - Número de bombas depende da dificuldade
        1.2.2 Falar dos controles
             - WASD
-            - J: selecionar
-            - K: inserir bandeira
+            - K: selecionar
+            - L: inserir bandeira
        1.2.3 Mostrar o contador de bandeiras
        1.2.4 Mostrar o clique
             - Falar da função recursiva que mostra todos os quadrados 0. 
