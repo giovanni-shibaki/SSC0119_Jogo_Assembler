@@ -21,6 +21,10 @@
 
 jmp main
 
+; ------- CARACTERES ESPECIAIS (CHECAR .mif) ---------
+
+; caracteres possíveis para o charmap ][{}*&><
+
 ; ------- DADOS SOBRE O CAMPO -------
 
 ; Campo de 14x14 = 196 posições
@@ -92,10 +96,8 @@ telaGanhou8:  string "        ) (     O    \n"
 telaGanhou9:  string "      _.' '._ JOGO!! \n"
 telaGanhou10: string "     =========       \n"
 
-strCampo1: string "[[[[[[[[[[[[[[[[[[[[[[[[[[[[["
-strCampo2: string "[ [ [ [ [ [ [ [ [ [ [ [ [ [ ["
-
-; caracteres possíveis para o charmap ][{}*&><
+strCampo1: string "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[" ; linhas do campo  ◼
+strCampo2: string "[ [ [ [ [ [ [ [ [ [ [ [ [ [ [" ; colunas do campo ◼
 
 telaMenu1:	string "   _____                            "
 telaMenu2:	string "  / ____|                           "
@@ -944,39 +946,6 @@ Imprimestr:	;  Rotina de Impresao de Mensagens:    r0 = Posicao da tela que o pr
 		pop r1
 		pop r0
 		rts
-	
-;clearVet:
-;	push r1
-;	push r2
-;	push r3
-;	push r4
-;	push r5
-;	
-;	loadn r5, #0 ;igualado
-;	
-;	store full, r5
-;	store savePos, r5
-;	
-;	loadn r1, #vetPos ; A partir da primeira posição do vetor
-;	loadn r2, #1 ;somando
-;	loadn r3, #9 ;k
-;	loadn r4, #0 ;contador
-;	loadn r5, #2 ;igualado
-;			
-;	loopClear:
-;		add r1, r1, r2 ;pos++
-;		storei r1, r5
-;		
-;		add r4, r4, r2 ;i++
-;		cmp r4, r3
-;		jne loopClear
-;		
-;	pop r5
-;	pop r4
-;	pop r3
-;	pop r2
-;	pop r1
-;	rts
 
 ; Imprime as paredes do campo
 ImprimeCampo:
@@ -1202,29 +1171,6 @@ printVetCampo:
 
 ; -----------------------------------------------------------------------------
 
-; -----------------------------------------------------------------------------
-
-;loadn r0, #0 ; posicao
-;	loadn r2, #2048 ; cor
-;	loadn r3, #1120 ; limite
-;	loadn r4, #40 ; incremento
-;	; r1 conteudo
-;	ImprimeCampoLoop:
-;		cmp r0, r3
-;		jeq ImprimeCampoFim
-;		loadn r1, #strCampo1
-;		call Imprimestr
-;		add r0, r0, r4
-;		loadn r1, #strCampo2
-;		call Imprimestr
-;		add r0, r0, r4
-;		jmp ImprimeCampoLoop
-;	ImprimeCampoFim:
-;		loadn r1, #strCampo1
-;		call Imprimestr
-
-; -----------------------------------------------------------------------------
-
 ; MULT RX, RY, RZ  ; RX < RY * RZ
 ; DIV RX, RY, RZ   ; RX < RY / RZ
 ; ADD RX, RY, RZ   ; RX < RY + RZ
@@ -1310,7 +1256,8 @@ sairRealizaAcao:
 	pop r1
 	pop r0
 	rts
-	
+
+; movimentação do ponteiro (slot atual selecionado) pelo jogador
 movePonteiroCima:
 	loadn r2, #0
 	loadn r3, #14
@@ -1806,7 +1753,7 @@ victory:
 	call Imprimestr
 
 	loadn r0, #408 ; Posição da tela para printar
-	loadn r1, #vitoria2
+	loadn r1, #vitoria3
 	loadn r2, #2816
 	call Imprimestr
 
