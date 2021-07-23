@@ -1439,6 +1439,7 @@ revelaQuadrado0:
 		sub r4, r1, r2
 		cmp r4, r3
 		cgr revelaQuadradoRec
+		; Implementar um CALL não negativo <cnn> através da FLAG NEGATIVE da ULA 
 
 	revelaQuadrado0Esquerda:
 		; se pos - 1 > 0 E (pos % 14 != 0)
