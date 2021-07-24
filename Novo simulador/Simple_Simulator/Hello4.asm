@@ -49,7 +49,7 @@ static mensagem + #19, #'T'
 static mensagem + #20, #'\0'
 
 
-mensagem2 : string "Ola Mundo!"
+mensagem2 : string "Ola Mundo! UHAUAHUAHUHUA"
 
 ;---- Inicio do Programa Principal -----
 main:

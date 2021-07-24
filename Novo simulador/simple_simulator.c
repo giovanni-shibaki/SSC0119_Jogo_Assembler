@@ -92,8 +92,8 @@ Do todos os comandos...
 #define POP	6       // "000110"; -- POP Rx  / POP FR   -- SP++ | Rx <- M[SP]  / FR <- M[SP]	  			  : b6=Rx/FR: 0/1		Format: < inst(6) | Rx(3) | b6 | xxxxxx >
 
 // ! Nova instrução implementada
-#define ZJMP 1		// "000001"; -- ZJMP END		-- PC <- 16 bit END							: b9-b6 = COND		Format < inst(6) | COND(4) | xxxxxx >   + 16bit END
-#define ZCALL 7		// "000111"; --	ZCALL END		-- M[SP] <- PC | SP-- | PC <- 16 bit END	: b9-b6 = COND		Format < inst(6) | COND(4) | xxxxxx >   + 16bit END
+#define ZJMP 11		// "000001"; -- ZJMP END		-- PC <- 16 bit END							: b9-b6 = COND		Format < inst(6) | COND(4) | xxxxxx >   + 16bit END
+#define ZCALL 12		// "000111"; --	ZCALL END		-- M[SP] <- PC | SP-- | PC <- 16 bit END	: b9-b6 = COND		Format < inst(6) | COND(4) | xxxxxx >   + 16bit END
 
 // Control Instructions:
 #define NOP	0       // "000000"; -- NOP            -- Do Nothing	 						Format: < inst(6) | xxxxxxxxxx >
@@ -517,8 +517,10 @@ loop:
 						LoadPC = 1;
 					}
 					else
+					{
 						//PC++;
 						IncPC = 1;
+					}
 					// -----------------------------
 					state=STATE_FETCH;
 					break;
@@ -597,7 +599,7 @@ loop:
 						(FR[NEGATIVE]==0 && FR[ZERO]==0 && COND == 0) 								// Greater than Zero
 						|| (FR[NEGATIVE]==0 && COND == 1)                          // Greater or Equal than Zero
 						|| (FR[NEGATIVE]==1 && FR[ZERO]==0 && (COND==2))  			// Less than Zero
-						|| (FR[NEGATIVE]==1 && (COND==3))                          // Less or Equal than Zero
+						|| ((FR[NEGATIVE]==1 || FR[ZERO]==1) && (COND==3))                          // Less or Equal than Zero
 					)
 					{
 						selM1 = sPC;
@@ -627,7 +629,7 @@ loop:
 						(FR[NEGATIVE]==0 && FR[ZERO]==0 && COND == 0) 				// Greater than Zero
 						|| (FR[NEGATIVE]==0 && COND == 1)                          // Greater or Equal than Zero
 						|| (FR[NEGATIVE]==1 && FR[ZERO]==0 && (COND==2))  			// Less than Zero
-						|| (FR[NEGATIVE]==1 && (COND==3))                          // Less or Equal than Zero
+						|| ((FR[NEGATIVE]==1 || FR[ZERO]==1) && (COND==3))                          // Less or Equal than Zero
 					)
 					{
 						RW = 1;
@@ -983,10 +985,15 @@ ResultadoUla ULA(unsigned int x, unsigned int y, unsigned int OP, int carry) {
 				case SUB:
 					result = x-y;
 
-					if(result < 0)// Negative
+					// ! result é unsigned, para verificar se é negativo comparar x<y
+					if(x<y)// Negative
+					{
 						auxFRbits[NEGATIVE] = 1;
+					}
 					else 
+					{
 						auxFRbits[NEGATIVE] = 0;
+					}
 					break;	
 				case MULT:
 					result = x*y;

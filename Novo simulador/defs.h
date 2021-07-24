@@ -120,8 +120,8 @@
 #define CLZ_CODE                112
 #define CLEZ_CODE               113
 
-#define JNN_CODE 114
-#define CNN_CODE 115
+#define JNN_CODE                114
+#define CNN_CODE                115
 
 
 /* Definicoes dos op codes (binarios em strings) */

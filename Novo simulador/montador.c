@@ -1523,7 +1523,7 @@ void MontarInstrucoes(void)
                    JGZ End
                    ==============
                 */
-                case JGZ_CODE :  
+                case JGZ_CODE :
                     val1 = RecebeEndereco();
                     str_tmp1 = NumPBinString(val1);
                     sprintf(str_msg,"%s%s000000",ZJMP,COND_GZ);

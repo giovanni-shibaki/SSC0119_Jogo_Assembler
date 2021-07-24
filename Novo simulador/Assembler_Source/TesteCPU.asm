@@ -38,58 +38,58 @@
 
 
 	; Teste JGZ
-	loadn r0, #10
-	loadn r1, #5
-	sub r2, r0, r1
-	jgz testejgz
-	halt
+	;loadn r0, #10
+	;loadn r1, #5
+	;sub r2, r0, r1
+	;jgz testejgz
+	;halt
 
-	testejgz:
-		loadn r0, #0		
-		loadn r1, #'A'		
-		outchar r1, r0	
-
-
-	; Teste JGEZ
-
-	jgez testejgez
-	halt
-
-	testejgez:
-		loadn r0, #2		
-		loadn r1, #'B'		
-		outchar r1, r0	
+	;testejgz:
+	;	loadn r0, #0		
+	;	loadn r1, #'A'		
+	;	outchar r1, r0	
 
 
-	; Teste JLZ
+	;; Teste JGEZ
 
-	jlz testejlz
-	halt
+	;jgez testejgez
+	;halt
 
-	testejlz:
-		loadn r0, #4		
-		loadn r1, #'C'		
-		outchar r1, r0	
+	;testejgez:
+	;	loadn r0, #2		
+	;	loadn r1, #'B'		
+	;	outchar r1, r0	
 
-	; Teste JLEZ
 
-	jlez testejlez
-	halt
-	testejlez:
-		loadn r0, #6		
-		loadn r1, #'D'		
-		outchar r1, r0	
+	;; Teste JLZ
 
-	; Teste CGZ
+	;jlz testejlz
+	;halt
+
+	;testejlz:
+	;	loadn r0, #4		
+	;	loadn r1, #'C'		
+	;	outchar r1, r0	
+
+	;; Teste JLEZ
+
+	;jlez testejlez
+	;halt
+	;testejlez:
+	;	loadn r0, #6		
+	;	loadn r1, #'D'		
+	;	outchar r1, r0	
+
+	;; Teste CGZ
 	
 
-	; Teste CGEZ
+	;; Teste CGEZ
 
 
-	; Teste CLZ
+	;; Teste CLZ
 
 
-	; Teste CLEZ
+	;; Teste CLEZ
 
 
 	
