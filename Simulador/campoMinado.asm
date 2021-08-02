@@ -21,6 +21,10 @@
 
 jmp main
 
+; ------- CARACTERES ESPECIAIS (CHECAR .mif) ---------
+
+; caracteres possíveis para o charmap ][{}*&><
+
 ; ------- DADOS SOBRE O CAMPO -------
 
 ; Campo de 14x14 = 196 posições
@@ -92,10 +96,8 @@ telaGanhou8:  string "        ) (     O    \n"
 telaGanhou9:  string "      _.' '._ JOGO!! \n"
 telaGanhou10: string "     =========       \n"
 
-strCampo1: string "[[[[[[[[[[[[[[[[[[[[[[[[[[[[["
-strCampo2: string "[ [ [ [ [ [ [ [ [ [ [ [ [ [ ["
-
-; caracteres possíveis para o charmap ][{}*&><
+strCampo1: string "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[" ; linhas do campo  ◼
+strCampo2: string "[ [ [ [ [ [ [ [ [ [ [ [ [ [ [" ; colunas do campo ◼
 
 telaMenu1:	string "   _____                            "
 telaMenu2:	string "  / ____|                           "
@@ -587,7 +589,7 @@ vetCampo3 : var #196
 	static vetCampo3 + #15, #9
 	static vetCampo3 + #16, #3
 	static vetCampo3 + #17, #9
-	static vetCampo3 + #18, #3
+	static vetCampo3 + #18, #1
 	static vetCampo3 + #19, #1
 	static vetCampo3 + #20, #9
 	static vetCampo3 + #21, #2
@@ -766,6 +768,8 @@ vetCampo3 : var #196
 	static vetCampo3 + #194, #1
 	static vetCampo3 + #195, #1
 
+
+
 ; guarda a posição do primeiro pixel de cada slot do campo minado
 vetPix : var #10
 	static vetPix + #0, #25
@@ -795,16 +799,20 @@ main:
 
 		init: ; Ler a dificuldade escolhida pelo player
 			call keyboard
+
+			; modo facil
 			loadn r0, #'1'
 			cmp r3, r0
 			ceq loadCampo1
 			ceq startGame
 			
+			; modo medio
 			loadn r0, #'2'
 			cmp r3, r0
 			ceq loadCampo2
 			ceq startGame
 
+			; modo dificil
 			loadn r0, #'3'
 			cmp r3, r0
 			ceq loadCampo3
@@ -913,12 +921,18 @@ clrScrn:
 	pop r0
 	rts
 
-Imprimestr:	;  Rotina de Impresao de Mensagens:    r0 = Posicao da tela que o primeiro caractere da mensagem sera impresso;  r1 = endereco onde comeca a mensagem; r2 = cor da mensagem.   Obs: a mensagem sera' impressa ate' encontrar "/0"
+Imprimestr:	;  Rotina de Impresao de Mensagens:    
+			; 	r0 = Posicao da tela que o primeiro caractere da mensagem sera impresso
+			; 	r1 = endereco onde comeca a mensagem
+			;   r2 = cor da mensagem.   
+			; 	Obs: a mensagem sera' impressa ate' encontrar "/0"
+
 	push r0	; protege o r0 na pilha para preservar seu valor
 	push r1	; protege o r1 na pilha para preservar seu valor
 	push r2	; protege o r1 na pilha para preservar seu valor
 	push r3	; protege o r3 na pilha para ser usado na subrotina
 	push r4	; protege o r4 na pilha para ser usado na subrotina
+
 	loadn r3, #'\0'	; Criterio de parada
 	
 	ImprimestrLoop:	
@@ -938,39 +952,6 @@ Imprimestr:	;  Rotina de Impresao de Mensagens:    r0 = Posicao da tela que o pr
 		pop r1
 		pop r0
 		rts
-	
-;clearVet:
-;	push r1
-;	push r2
-;	push r3
-;	push r4
-;	push r5
-;	
-;	loadn r5, #0 ;igualado
-;	
-;	store full, r5
-;	store savePos, r5
-;	
-;	loadn r1, #vetPos ; A partir da primeira posição do vetor
-;	loadn r2, #1 ;somando
-;	loadn r3, #9 ;k
-;	loadn r4, #0 ;contador
-;	loadn r5, #2 ;igualado
-;			
-;	loopClear:
-;		add r1, r1, r2 ;pos++
-;		storei r1, r5
-;		
-;		add r4, r4, r2 ;i++
-;		cmp r4, r3
-;		jne loopClear
-;		
-;	pop r5
-;	pop r4
-;	pop r3
-;	pop r2
-;	pop r1
-;	rts
 
 ; Imprime as paredes do campo
 ImprimeCampo:
@@ -1092,7 +1073,6 @@ loadCampo1:
 
 ; -----------------------------------------------------------------------------
 
-
 ; -----------------------------------------------------------------------------
 
 loadCampo2:
@@ -1152,7 +1132,7 @@ loadCampo3:
 		jne loopLoadCampo3
 	
 	loadn r0, #numQuadradosCampo
-	loadn r1, #161 ;quantidade de quadrados do campo3
+	loadn r1, #160 ;quantidade de quadrados do campo3
 	storei r0, r1 ;armazena a quantidade de quadrados na variavel numQuadradosCampo
 
 	pop r4
@@ -1193,29 +1173,6 @@ printVetCampo:
 	pop r1
 	pop r0
 	rts
-
-; -----------------------------------------------------------------------------
-
-; -----------------------------------------------------------------------------
-
-;loadn r0, #0 ; posicao
-;	loadn r2, #2048 ; cor
-;	loadn r3, #1120 ; limite
-;	loadn r4, #40 ; incremento
-;	; r1 conteudo
-;	ImprimeCampoLoop:
-;		cmp r0, r3
-;		jeq ImprimeCampoFim
-;		loadn r1, #strCampo1
-;		call Imprimestr
-;		add r0, r0, r4
-;		loadn r1, #strCampo2
-;		call Imprimestr
-;		add r0, r0, r4
-;		jmp ImprimeCampoLoop
-;	ImprimeCampoFim:
-;		loadn r1, #strCampo1
-;		call Imprimestr
 
 ; -----------------------------------------------------------------------------
 
@@ -1304,7 +1261,8 @@ sairRealizaAcao:
 	pop r1
 	pop r0
 	rts
-	
+
+; movimentação do ponteiro (slot atual selecionado) pelo jogador
 movePonteiroCima:
 	loadn r2, #0
 	loadn r3, #14
@@ -1481,6 +1439,7 @@ revelaQuadrado0:
 		sub r4, r1, r2
 		cmp r4, r3
 		cgr revelaQuadradoRec
+		; Implementar um CALL não negativo <cnn> através da FLAG NEGATIVE da ULA 
 
 	revelaQuadrado0Esquerda:
 		; se pos - 1 > 0 E (pos % 14 != 0)
@@ -1800,7 +1759,7 @@ victory:
 	call Imprimestr
 
 	loadn r0, #408 ; Posição da tela para printar
-	loadn r1, #vitoria2
+	loadn r1, #vitoria3
 	loadn r2, #2816
 	call Imprimestr
 

@@ -11,6 +11,17 @@ Projeto final da dsiciplina de SCC0119 - Prática em Organização de Computador
 
 ---
 
+## Como jogar
+
+- Para jogar siga os itens abaixo:
+  - Abra o editor de texto **sublime_text.exe** presente na pasta <Simulador/Sublime Text3>;
+  - Com o sublime aberto, vá em <File/Open File...> e abra o arquivo **campoMinado.asm**;
+  - Com o arquivo aberto no sublime, aperte a tecla **F7** e o simulador deverá ser aberto;
+  - Para iniciar, pressione a tecla **Home** de seu teclado, e pronto!
+  - Veja a lista de comandos para jogar na seção **Tutorial** logo em seguida da seção **Funcionalidades** abaixo:
+
+---
+
 ## Funcionalidades
 
 - Neste projeto, desenvolvemos todas as funcionalidades que um jogo comum de campo minado apresenta. Temos as funções de inserção e remoção de bandeiras, contagem de bandeiras inseridas e **uma função recursiva responsável por revelar todos os campo adjacentes àqueles com valor 0**.

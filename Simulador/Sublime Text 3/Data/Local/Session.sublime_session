@@ -29,19 +29,11 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/Hello4.asm",
+					"file": "/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Simulador/campoMinado.asm",
 					"settings":
 					{
-						"buffer_size": 3239,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/TesteCPU.asm",
-					"settings":
-					{
-						"buffer_size": 3575,
-						"line_ending": "Unix"
+						"buffer_size": 45264,
+						"line_ending": "Windows"
 					}
 				}
 			],
@@ -81,6 +73,12 @@
 			],
 			"file_history":
 			[
+				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Simulador/campoMinado.asm",
+				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Assembly_Minado/charmap.mif",
+				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Assembly_Minado/campoMinado.asm",
+				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/campoMinado.asm",
+				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/Hello4.asm",
+				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/TesteCPU.asm",
 				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/cpuram.mif",
 				"/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/Hello5.asm",
 				"/G/Meu Drive/USP/3SEM/SSC0119_Pratica_em_Organizacao_de_Computadores/Simulador/campoMinado.asm",
@@ -165,53 +163,24 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/Hello4.asm",
+							"file": "/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Simulador/campoMinado.asm",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 3239,
+								"buffer_size": 45264,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										677,
-										677
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/Assembly ICMC/Assembly ICMC.tmLanguage",
-									"translate_tabs_to_spaces": false
-								},
-								"translation.x": -0.0,
-								"translation.y": 45.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Users/giova/Documents/Github/SSC0119_Jogo_Assembler/Novo simulador/Simple_Simulator/TesteCPU.asm",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 3575,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										747,
-										747
+										565,
+										565
 									]
 								],
 								"settings":
@@ -268,7 +237,7 @@
 			{
 				"height": 0.0
 			},
-			"position": "0,2,3,-1,-1,-1,-1,645,30,106,686",
+			"position": "0,2,3,-32000,-32000,-1,-1,645,30,106,686",
 			"project": "",
 			"replace":
 			{

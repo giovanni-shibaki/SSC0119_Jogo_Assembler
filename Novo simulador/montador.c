@@ -1507,12 +1507,18 @@ void MontarInstrucoes(void)
                 */
                 
                 case JNN_CODE :
+                    // Recebe o endereço para ser feito o jump
                     val1 = RecebeEndereco();
+                    // tranforma o endereço em string
                     str_tmp1 = NumPBinString(val1);
+                    // Concatena o op code da intrução com o op code interno da condição
                     sprintf(str_msg,"%s%s000000",JMP,COND_NN);
+                    // Escreve a instrução a ser executada no arquivo .mif
                     parser_Write_Inst(str_msg,end_cnt);
                     end_cnt += 1;
+                    // Concatena a instrução com o endereço em que poderá ser efetuado o jump
                     sprintf(str_msg,"%s",str_tmp1);
+                    // Escrever o endereço destino do possível jump
                     parser_Write_Inst(str_msg,end_cnt);
                     end_cnt +=1;
                     free(str_tmp1);
@@ -1887,6 +1893,7 @@ void MontarInstrucoes(void)
                     free(str_tmp1);
                     break;
                     
+                // ! ==========================================
                 /* ==============
                    Cnn End
                    ==============

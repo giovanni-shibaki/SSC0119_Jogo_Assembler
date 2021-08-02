@@ -510,7 +510,8 @@ loop:
 							|| (FR[ARITHMETIC_OVERFLOW]==0 && (COND==12))                           // NOT OVERFLOW
 							|| (FR[NEGATIVE]==1 && (COND==14))                           // NEGATIVO
 							|| (FR[DIV_BY_ZERO]==1 && (COND==13))							  // DIVBYZERO
-							|| (FR[NEGATIVE] == 0 && (COND==15)))                 // NOT NEGATIVE    
+							|| (FR[NEGATIVE] == 0 && (COND==15)))                 // NOT NEGATIVE
+							// ! ================================================================    
 					{ // PC = MEMORY[PC];
 						selM1 = sPC;
 						RW = 0;
@@ -555,6 +556,7 @@ loop:
 							|| (FR[DIV_BY_ZERO]==1 && (COND==13))				  // DIVBYZERO
 							|| (FR[NEGATIVE]==1 && (COND==14)) 				      // NEGATIVE
 							|| (FR[NEGATIVE] == 0 && (COND==15))) 				  // NOT NEGATIVE
+							// ! ================================================================
 							
 					{ 						  
 						// MEMORY[SP] = PC;
@@ -986,7 +988,7 @@ ResultadoUla ULA(unsigned int x, unsigned int y, unsigned int OP, int carry) {
 					result = x-y;
 
 					// ! result é unsigned, para verificar se é negativo comparar x<y
-					if(x<y)// Negative
+					if(x<y) // Negative
 					{
 						auxFRbits[NEGATIVE] = 1;
 					}
