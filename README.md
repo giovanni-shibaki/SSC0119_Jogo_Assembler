@@ -10,6 +10,12 @@ Projeto final da dsiciplina de SCC0119 - Prática em Organização de Computador
 - Campo minado é um popular jogo de computador para um jogador. Foi inventado por Robert Donner em 1989 e tem como objectivo revelar um campo de minas sem que alguma seja detonada. Neste projeto, desenvolvemos um jogo de campo minado em linguagem assembly através da CPU do ICMC desenvolvida pelo professor Simões.
 
 ---
+## Vídeo de apresentação
+
+[![Vídeo de apresentação - Assembly Minado](https://img.youtube.com/vi/hAiAPjH48Iw/0.jpg)](https://www.youtube.com/watch?v=hAiAPjH48Iw)
+(clique para ir ao youtube)
+
+---
 
 ## Como jogar
 
