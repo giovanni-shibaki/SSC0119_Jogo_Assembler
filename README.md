@@ -127,6 +127,25 @@ Para jogar é preciso apenas utilizar o teclado!
 
 ---
 
+## Novas instruções
+
+- As novas instruções criadas para o processador do ICMC são:
+	- JNN: Jump not negative
+	- JGZ: Jump Greater Zero
+	- JGEZ: Jump Greater Equal Zero
+	- JLZ: Jump Lesser Zero
+	- JLEZ: Jump Lesse Equal Zero
+	- CNN: Call not negative
+	- CGZ: Call Greater Zero
+	- CGEZ: Call Greater Equal Zero
+	- CLZ: Call Lesser Zero
+	- CLEZ: Call Lesser Equal Zero
+
+- Implementadas para operações com verificações de resultados >= 0 e <= 0.
+- A descrição das novas instruções encontram-se no arquivo **Novo_Manual.PDF** presente neste mesmo repositório.
+
+---
+
 ## O que aprendemos
 
 - Durante o desenvolvimento deste projeto aprendemos a desenvolver, do começo, meio e fim, um projeto funcional utilizando a linguagem Assembly.
